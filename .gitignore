@@ -4,6 +4,11 @@
 *.translation
 /export_presets.cfg
 
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+
 # Mono/C# (If you use the C# version of Godot)
 .mono/
 .vscode/
