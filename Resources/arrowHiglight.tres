@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ArrowHighlight" load_steps=6 format=3 uid="uid://bd7v32txvwg5w"]
+
+[ext_resource type="Script" uid="uid://cl5jhqxeeegq" path="res://Scripts/arrowHighlight.gd" id="1_2gpxe"]
+[ext_resource type="Texture2D" uid="uid://cbqlyu2jlg00n" path="res://Assets/arrowInteract-down.png" id="1_xolen"]
+[ext_resource type="Texture2D" uid="uid://6vpjbctxe03k" path="res://Assets/arrowInteract-left.png" id="2_mm5mq"]
+[ext_resource type="Texture2D" uid="uid://djrk63irmuo30" path="res://Assets/arrowInteract-right.png" id="3_5yrxt"]
+[ext_resource type="Texture2D" uid="uid://klh5puqiag6k" path="res://Assets/arrowInteract-up.png" id="4_l1vw5"]
+
+[resource]
+script = ExtResource("1_2gpxe")
+images = Array[CompressedTexture2D]([ExtResource("1_xolen"), ExtResource("2_mm5mq"), ExtResource("3_5yrxt"), ExtResource("4_l1vw5")])

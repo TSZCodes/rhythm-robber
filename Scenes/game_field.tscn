@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=3 uid="uid://h8r4oikbmvcg"]
+
+[ext_resource type="PackedScene" uid="uid://4uv722pxtftp" path="res://Scenes/arrows.tscn" id="1_5crqb"]
+[ext_resource type="Script" uid="uid://74i7pjadyl8d" path="res://game_field.gd" id="1_rtcfd"]
+[ext_resource type="Texture2D" uid="uid://itdil7bq0gcj" path="res://Assets/arrowFall-down.png" id="2_airkp"]
+[ext_resource type="Script" uid="uid://qaurcpcdhaxd" path="res://Scripts/arrowsFall.gd" id="2_l7m5p"]
+[ext_resource type="PackedScene" uid="uid://dmokku45ayoye" path="res://Scenes/arrow_fall.tscn" id="2_rtcfd"]
+[ext_resource type="Texture2D" uid="uid://diilvsy6xn0ic" path="res://Assets/arrowFall-left.png" id="3_31yny"]
+[ext_resource type="Texture2D" uid="uid://df43cc1y6vgj3" path="res://Assets/arrowFall-right.png" id="4_15xo5"]
+[ext_resource type="Texture2D" uid="uid://d0k2jhq1sfffj" path="res://Assets/arrowFall-up.png" id="5_72mla"]
+
+[sub_resource type="Resource" id="Resource_31yny"]
+script = ExtResource("2_l7m5p")
+images = Array[CompressedTexture2D]([ExtResource("2_airkp"), ExtResource("3_31yny"), ExtResource("4_15xo5"), ExtResource("5_72mla")])
+metadata/_custom_type_script = "uid://qaurcpcdhaxd"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_31yny"]
+
+[node name="GameField" type="CanvasLayer"]
+script = ExtResource("1_rtcfd")
+arrowFall = ExtResource("2_rtcfd")
+arrowSprite = SubResource("Resource_31yny")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arrows" parent="." instance=ExtResource("1_5crqb")]
+
+[node name="ArrowBoundary" type="Area2D" parent="."]
+position = Vector2(0, 1016)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowBoundary"]
+shape = SubResource("WorldBoundaryShape2D_31yny")
+
+[connection signal="area_entered" from="ArrowBoundary" to="." method="_on_arrow_boundary_area_entered"]
